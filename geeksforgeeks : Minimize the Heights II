@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std; 
+
+int minimum(int n, int k, int arr[]) {
+   int mini=arr[0]+k; 
+   int maxi=arr[n-1]-k; 
+
+   int ans=maxi-mini; 
+   for(int i=1; i<n; i++) {
+      int s=min(mini, arr[i]-k); 
+      int l=max(maxi, arr[i-1]+k); 
+
+      ans = min(ans, l-s); 
+   } 
+
+  return ans; 
+} 
+
+int main() {
+    int n=5,k=3; 
+    int arr[]={3, 9, 12, 16, 20}; 
+
+    int ans=minimum(n, k, arr); 
+    cout << ans; 
+    return 0;
+} 
