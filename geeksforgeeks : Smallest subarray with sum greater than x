@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std; 
+
+int smallestSubarray(int arr[], int x, int n) {
+  int i=0,j=0; 
+  int sum=0,minimum=INT_MAX; 
+
+  while((i <= j) && (j < n)) {
+     while((sum <= x) && (j < n)) {
+        sum = sum + arr[j++]; 
+     } 
+     while((sum > x) && (i <= j)) {
+        minimum = min(minimum, j-i); 
+        sum = sum - arr[i++]; 
+     }
+  } 
+  return minimum; 
+} 
+
+int main() {
+    int arr[]={1, 4, 45, 6, 0, 19}; 
+    int x; 
+    cin >> x; 
+
+    int ans=smallestSubarray(arr, x, 6); 
+
+    cout << ans; 
+    return 0;
+} 
