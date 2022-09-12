@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> s; 
+        
+        int length=0; 
+        for(int i=0; i<nums.size(); i++) {
+            s.insert(nums[i]); 
+        } 
+        
+        for(int i=0; i<nums.size(); i++) {
+            if(s.find(nums[i]-1) == s.end()) {
+                int j=nums[i]; 
+                
+                int count=0; 
+                while(s.find(j) != s.end()) {
+                    j++; 
+                    count++; 
+                } 
+                
+                length = max(count, length); 
+            }
+        } 
+        
+        return length; 
+    }
+}; 
+
+/* create a unordered_set insert all elements into it. 
+   now check for every elements that (arr[i]-1) is present or not.  
+       if not present that this element is starting point of subsequence. 
+         if first element found check for subsequence in set. 
+         maximum count found. 
+         print maximum cutive. */ 
