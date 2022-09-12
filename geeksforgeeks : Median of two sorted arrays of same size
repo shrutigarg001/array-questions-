@@ -1,0 +1,44 @@
+/* Efficient Approach 
+  array1 = m1, array2 = m2; 
+  
+  if(n == 2) 
+     return (maximum of both starting number + minimum of both last number) 
+     
+  find median of both arrays (m1, m2) 
+    if(same) 
+      return median of any
+    else if(m1 > m2) 
+      function(arr1(0, median), arr2(median, arr2(n-1))) 
+    else 
+      function(arr1(median, arr2(n-1))), arr2(0, median)) 
+      
+      size of arr becomes 2 
+      
+      in case of even arrays discard the part of arrays that is outside the median 
+      
+      arr1 = {1, 2, 3, 4, 5, 6} 
+      arr2 = {0, 7, 8, 10, 19, 20} 
+      
+      m1 = (3 + 4) / 2; 
+      m2 = (8 + 10) / 2; 
+      
+      m1 < m2 
+      
+      function call 
+      
+      array becomes 
+      
+      arr1 ={3, 4, 5, 6} 
+      arr2= {0, 7, 8, 10} 
+      
+      arr1 = {1, 2, 3} 
+      arr2 = {0, 7, 8}  
+      
+      m1 = 2, m2 = 7 
+      
+      m1 < m2 
+      
+      arr1 = {2, 3} 
+      arr2 = {0, 7} 
+      
+      
